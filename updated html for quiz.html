@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>General Knowledge Quiz</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Landing Page -->
+  <div class="page landing-container" id="landing-container">
+    <div class="landing-hero">
+      <img src="./Gemini_Generated_Final.png" alt="GK Quiz Landing Page" class="landing-hero-image">
+      <div class="landing-overlay"></div>
+      <div class="landing-banner">
+        <h1>GK Quiz</h1>
+        <p>Start your trivia journey with 5 categories and 3 difficulty levels.</p>
+        <button type="button" class="start-btn" onclick="showMainMenu()">START</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Menu -->
+  <div class="page main-menu-container hidden" id="main-menu-container">
+    <div class="content-box fade-in">
+      <h1>Quiz Main Menu</h1>
+      <p>Ready to test your knowledge? Start the quiz, view the leaderboard, or read the instructions.</p>
+      <button type="button" class="home-btn" onclick="showCategories()">Start Quiz</button>
+      <button type="button" class="home-btn" onclick="showLeaderboard()">Leaderboard</button>
+      <button type="button" class="home-btn" onclick="showInstructions()">Instructions</button>
+      <button type="button" class="home-btn" onclick="showHome()">Back to Landing</button>
+    </div>
+  </div>
+
+  <!-- Category Selection -->
+  <div class="page home-container hidden" id="home-container">
+    <div class="home-content fade-in">
+      <div class="category-header">
+        <h1>Choose Your Category</h1>
+        <p>Select a category below to continue.</p>
+      </div>
+      <div class="category-body">
+        <div class="category-grid-left" id="category-grid-left"></div>
+        <div class="category-grid-right" id="category-grid-right"></div>
+      </div>
+      <button type="button" class="home-btn home-back-btn" onclick="showMainMenu()">Back to Menu</button>
+    </div>
+  </div>
+
+  <!-- Instructions -->
+  <div class="page instructions-container hidden" id="instructions-container">
+    <div class="content-box fade-in">
+      <h1>How to Play</h1>
+      <p>Choose a category, pick a difficulty, and answer all questions before the timer runs out.</p>
+      <ul>
+        <li>Easy: 4 minutes</li>
+        <li>Intermediate: 3 minutes</li>
+        <li>Hard: 2 minutes</li>
+      </ul>
+      <button type="button" class="home-btn" onclick="showMainMenu()">Back to Menu</button>
+    </div>
+  </div>
+
+  <!-- Difficulty -->
+  <div class="page difficulty-container hidden" id="difficulty-container">
+    <div class="content-box fade-in">
+      <h1>Select Difficulty</h1>
+      <div class="difficulty-grid">
+        <button type="button" class="difficulty-btn easy-btn" onclick="selectDifficulty('easy')">Easy</button>
+        <button type="button" class="difficulty-btn intermediate-btn" onclick="selectDifficulty('intermediate')">Intermediate</button>
+        <button type="button" class="difficulty-btn hard-btn" onclick="selectDifficulty('hard')">Hard</button>
+      </div>
+      <button type="button" class="home-btn" onclick="showCategories()">Back</button>
+    </div>
+  </div>
+
+  <!-- Quiz -->
+  <div class="page quiz-container hidden" id="quiz-container">
+    <div class="content-box fade-in">
+      <div class="quiz-header">
+        <div>
+          <h1>Quiz Time</h1>
+          <div id="quiz-player-display">Player: Anonymous</div>
+        </div>
+        <div class="timer-box">
+          <span>Time left</span>
+          <span id="timer">00:00</span>
+        </div>
+      </div>
+      <div id="question-counter" class="question-counter"></div>
+      <div id="question-text" class="question-text"></div>
+      <div id="options-container" class="options-container"></div>
+      <div class="quiz-actions">
+        <button type="button" class="home-btn" onclick="goHome()">Back to Home</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="page results-container hidden" id="results-container">
+    <div class="content-box fade-in">
+      <h1>Results</h1>
+      <p id="final-score"></p>
+      <p id="final-percentage"></p>
+      <p id="time-taken"></p>
+      <div id="result-message"></div>
+      <div id="detailed-results"></div>
+      <button type="button" class="home-btn" onclick="showHome()">Home</button>
+      <button type="button" class="home-btn" onclick="showLeaderboard()">Leaderboard</button>
+    </div>
+  </div>
+
+  <!-- Leaderboard -->
+  <div class="page leaderboard-container hidden" id="leaderboard-container">
+    <div class="content-box fade-in">
+      <h1>Leaderboard</h1>
+      <div id="leaderboard-list"></div>
+      <button type="button" class="home-btn" onclick="showHome()">Back</button>
+    </div>
+  </div>
+
+  <script src="quiz.js"></script>
+</body>
+</html>
